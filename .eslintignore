@@ -1,0 +1,9 @@
+components/**/e2e/*
+components/**/unit/*
+components/**/*.stories.*
+lib
+es
+umd
+dist
+.storybook
+gulpfile.js

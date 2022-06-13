@@ -1,0 +1,10 @@
+node_modules/
+
+dist
+/lib
+/es
+
+/.vscode/
+/coverage
+yarn.lock
+package-lock.json
