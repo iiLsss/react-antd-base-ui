@@ -1,10 +1,12 @@
-import React, { ButtonHTMLAttributes } from "react"
-import {Button as AButton, ButtonProps as AButtonProps} from 'antd'
+import React, { ButtonHTMLAttributes } from 'react'
+import { Button as AButton, ButtonProps as AButtonProps } from 'antd'
 
+interface CustomProps extends ButtonHTMLAttributes<HTMLButtonElement> {}
 
-interface ButtonProps extends ButtonHTMLAttributes<HTMLButtonElement> {}
-const Button: React.FC<ButtonProps | AButtonProps> = (props) => {
+type ButtonProps = CustomProps | AButtonProps
+const Button: React.FC<ButtonProps> = (props) => {
   const { children } = props
+  // 自定义属性
   return <AButton type='primary'>{children}</AButton>
 }
 

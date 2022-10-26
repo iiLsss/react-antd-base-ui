@@ -1,17 +1,17 @@
-import React from "react";
-import { ComponentStory, ComponentMeta } from "@storybook/react";
+import React from 'react'
+import { ComponentStory, ComponentMeta } from '@storybook/react'
 
-import Button from ".";
+import Button from '.'
 
 export default {
-  title: "通用/Button(按钮)",
-  component: Button,
-} as ComponentMeta<typeof Button>;
+  title: 'Antd/Button 按钮',
+  component: Button
+} as ComponentMeta<typeof Button>
 
-const Template: ComponentStory<typeof Button> = (args) => (<Button  {...args} />)
+const Template: ComponentStory<typeof Button> = (args) => <Button {...args} />
 
-export const Basic = Template.bind({});
+export const Basic = Template.bind({})
 
 Basic.args = {
-  children: "按钮",
+  children: '按钮'
 }
