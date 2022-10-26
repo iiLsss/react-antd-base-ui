@@ -1,5 +1,5 @@
 {
-  "name": "lsss-test-ui",
+  "name": "react-antd-base-ui",
   "version": "1.0.2",
   "description": "组件库",
   "main": "lib/index.js",

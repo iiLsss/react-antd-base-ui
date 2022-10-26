@@ -4,61 +4,63 @@ const MiniCssExtractPlugin = require('mini-css-extract-plugin')
 // 当前命令所在的目录
 const cwd = process.cwd()
 module.exports = {
-  mode: 'development',// 开发模式
-  devtool: false,// 关闭生成sourcemap
+  mode: 'development', // 开发模式
+  devtool: false, // 关闭生成sourcemap
   entry: {
-    antd: './index.js',
+    antd: './index.js'
   },
   output: {
-    path: path.resolve('dist'),// 输出到dist目录
-    filename: '[name].js',// 打包后的文件 antd.css
-    library: 'antd',// 打包后库的名字
-    libraryTarget: 'umd',// 打包后模块的格式 umd amd cmd commonjs commonjs window
+    path: path.resolve('dist'), // 输出到dist目录
+    filename: '[name].js', // 打包后的文件 antd.css
+    library: 'antd', // 打包后库的名字
+    libraryTarget: 'umd' // 打包后模块的格式 umd amd cmd commonjs commonjs window
   },
-  externals: {// 组件库代码其实是不需要打包react 和react-dom进去的
-    react: {// 外部依赖
+  externals: {
+    // 组件库代码其实是不需要打包react 和react-dom进去的
+    react: {
+      // 外部依赖
       root: 'React',
       commonjs2: 'react',
       commonjs: 'react',
-      amd: 'react',
+      amd: 'react'
     },
     'react-dom': {
       root: 'ReactDOM',
       commonjs2: 'react-dom',
       commonjs: 'react-dom',
-      amd: 'react-dom',
-    },
+      amd: 'react-dom'
+    }
   },
   resolve: {
-    extensions: ['.ts', '.tsx', '.js', '.jsx', '.json']// 指定扩展名 
+    extensions: ['.ts', '.tsx', '.js', '.jsx', '.json'] // 指定扩展名
   },
   module: {
     rules: [
       {
-        test: /\.(j|t)sx?$/,// 配置如何加载js ts jsx tsx
+        test: /\.(j|t)sx?$/, // 配置如何加载js ts jsx tsx
         exclude: /node_modules/,
-        loader: 'babel-loader',
+        loader: 'babel-loader'
       },
       {
         test: /\.css$/,
         use: [
-          MiniCssExtractPlugin.loader,// 把这些CSS收集起来后面通过插件写入单独的antd.css
+          MiniCssExtractPlugin.loader, // 把这些CSS收集起来后面通过插件写入单独的antd.css
           {
-            loader: 'css-loader',// 处理@import和url
+            loader: 'css-loader', // 处理@import和url
             options: {
-              sourceMap: true,
-            },
+              sourceMap: true
+            }
           },
           {
             loader: 'postcss-loader', // 加厂商前缀
             options: {
               postcssOptions: {
-                plugins: ['autoprefixer'],
+                plugins: ['autoprefixer']
               },
-              sourceMap: true,
-            },
-          },
-        ],
+              sourceMap: true
+            }
+          }
+        ]
       },
       {
         test: /\.less$/,
@@ -67,38 +69,38 @@ module.exports = {
           {
             loader: 'css-loader',
             options: {
-              sourceMap: true,
-            },
+              sourceMap: true
+            }
           },
           {
             loader: 'postcss-loader',
             options: {
               postcssOptions: {
-                plugins: ['autoprefixer'],
+                plugins: ['autoprefixer']
               },
-              sourceMap: true,
-            },
+              sourceMap: true
+            }
           },
           {
             loader: 'less-loader',
             options: {
               lessOptions: {
-                javascriptEnabled: true,
+                javascriptEnabled: true
               },
-              sourceMap: true,
-            },
-          },
-        ],
+              sourceMap: true
+            }
+          }
+        ]
       },
       {
         test: /\.(png|jpg|jpeg|gif|svg)(\?v=\d+\.\d+\.\d+)?$/i,
-        type: 'asset'// 静态文件不再需要配置loader
-      },
-    ],
+        type: 'asset' // 静态文件不再需要配置loader
+      }
+    ]
   },
   plugins: [
     new MiniCssExtractPlugin({
-      filename: '[name].css',
-    }),
-  ],
+      filename: '[name].css'
+    })
+  ]
 }
