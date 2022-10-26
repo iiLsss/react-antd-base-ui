@@ -12,7 +12,7 @@
     "lib"
   ],
   "scripts": {
-    "build": "webpack",
+    "build": "webpack  --config script/webpack.config.js",
     "storybook": "start-storybook -p 6006",
     "build-storybook": "build-storybook",
     "test:unit": "jest --config unit.jest.js",

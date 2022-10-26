@@ -2,9 +2,9 @@ const path = require('path')
 // 提取CSS文件的
 const MiniCssExtractPlugin = require('mini-css-extract-plugin')
 // 当前命令所在的目录
-const cwd = process.cwd()
+// const cwd = process.cwd()
 module.exports = {
-  mode: 'development', // 开发模式
+  mode: 'production', // 开发模式
   devtool: false, // 关闭生成sourcemap
   entry: {
     antd: './index.js'
